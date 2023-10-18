@@ -57,4 +57,20 @@ print(np.diag([1, 2, 3]))
 
 '''
 
-
+'''
+import matplotlib.pyplot as plt
+import numpy as np
+x_cord = np.array([1, 2, 3, 4, 5])
+y_cord = np.array([1, 4, 9, 16, 25])
+plt.scatter(x_cord, y_cord)
+plt.plot(x_cord, y_cord)
+plt.show()
+'''
+#ctr+c matar un proceso
+'''
+import matplotlib.pyplot as plt
+import numpy as np
+x=np.arange(0, 2*np.pi, 0.1)
+plt.plot(x, np.sin(x))
+plt.show()
+'''
