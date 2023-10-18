@@ -66,6 +66,7 @@ plt.scatter(x_cord, y_cord)
 plt.plot(x_cord, y_cord)
 plt.show()
 '''
+#pip install matplotlib
 #ctr+c matar un proceso
 '''
 import matplotlib.pyplot as plt
@@ -74,3 +75,45 @@ x=np.arange(0, 2*np.pi, 0.1)
 plt.plot(x, np.sin(x))
 plt.show()
 '''
+
+'''
+from scipy import misc
+import matplotlib.pyplot as plt
+
+img = misc.face() # Imagen para pruebas que ofrece SciPy
+print("Tipo de dato:", type(img)) # Tipo de dato: <class 'numpy.ndarray'>
+print("Número de dimensiones:", img.ndim) # Número de dimensiones: 3
+print("Tamaño de la imagen:", img.shape) # Tamaño de la imagen: (768, 1024, 3)
+
+plt.imshow(img)
+
+plt.show()
+'''
+#pip install scipy
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import interp1d
+from random import randrange
+
+# Valores x e y originales:
+
+x_values = np.arange(0, 20)
+y_values = [randrange(0, 10) for x in x_values]  # Randomly generated y values.
+
+# Función de interpolación:
+
+interpolation_function = interp1d(x_values, y_values)
+
+# Nuevos valores x (más precisos) y valores e interpolados:
+
+x_values_interp = np.arange(0, 19, .25)
+y_values_interp = interpolation_function(x_values_interp)
+
+plt.plot(x_values_interp, y_values_interp, '.-', color="darkorange", label="Datos interpolados")
+plt.plot(x_values, y_values, '.', color="red", label="Raw data")
+
+plt.title("Datos interpolados vs Datos originales")
+plt.legend()
+plt.grid(True)
+plt.show()
